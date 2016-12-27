@@ -1,4 +1,4 @@
-import org.scalatest.FlatSpec
+package com.perhac.fuelmeter.acceptancetests.specs
 
 class FirstTimeUserSpec extends FuelMeterAcceptanceTest {
 
