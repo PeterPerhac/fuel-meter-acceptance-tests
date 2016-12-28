@@ -20,6 +20,16 @@ trait FuelMeterAcceptanceTest extends FlatSpec with BeforeAndAfterAll with Befor
     def textShouldBe(expectedString: String): Unit = el.map(_.text) shouldBe Some(expectedString)
   }
 
+  private def displayedErrors() = findAll(cssSelector("span.error")).withFilter(_.isDisplayed)
+
+  def errorsOnPage(): List[String] = {
+    displayedErrors().map(_.text).toList
+  }
+
+  def assertNoErrorsOnPage(): Unit = {
+    displayedErrors() shouldBe empty
+  }
+
   override protected def afterAll(): Unit = quit()
 
 }
