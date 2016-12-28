@@ -13,4 +13,10 @@ abstract class FuelMeterPage(implicit driver: WebDriver) extends Page with WebBr
     }
   }
 
+  def errorOnPage(errorMessageSubstring: String): Boolean = {
+    findAll(cssSelector(".error")).collectFirst {
+      case e if e.text contains errorMessageSubstring => true
+    } getOrElse false
+  }
+
 }
