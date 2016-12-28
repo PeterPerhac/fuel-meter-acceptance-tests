@@ -11,7 +11,7 @@ class AddVehicleSpec extends FlatSpec with FuelMeterAcceptanceTest {
   val addReadingPage = new AddReadingPage(defaultReg)
 
   override def beforeEach(): Unit = {
-    logger.warn(s"clearing all readings for $defaultReg vehicle")
+    logger.warn(s"clearing all readings for $newVehicleReg vehicle")
     go to new DeleteReadingsPage(newVehicleReg)
     go to listReadingsPage
     listReadingsPage.itemsInList shouldBe 0
