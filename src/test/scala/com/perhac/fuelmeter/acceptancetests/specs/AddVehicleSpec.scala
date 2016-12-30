@@ -1,9 +1,10 @@
 package com.perhac.fuelmeter.acceptancetests.specs
 
 import com.perhac.fuelmeter.acceptancetests.pages.{AddReadingPage, DeleteReadingsPage, ListReadingsPage}
-import org.scalatest.FlatSpec
+import org.scalatest.DoNotDiscover
 
-class AddVehicleSpec extends FlatSpec with FuelMeterAcceptanceTest {
+@DoNotDiscover
+class AddVehicleSpec extends FuelMeterAcceptanceTest {
 
   val newVehicleReg = "NOOV3H"
 
