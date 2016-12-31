@@ -1,9 +1,10 @@
 package com.perhac.fuelmeter.acceptancetests.specs
 
+import com.perhac.fuelmeter.acceptancetests.CookieClearing
 import org.scalatest.DoNotDiscover
 
 @DoNotDiscover
-class FirstTimeUserSpec extends FuelMeterAcceptanceTest {
+class FirstTimeUserSpec extends FuelMeterAcceptanceTest with CookieClearing {
 
   behavior of "Homepage"
 
@@ -18,5 +19,4 @@ class FirstTimeUserSpec extends FuelMeterAcceptanceTest {
     find(tagName("h1")) textShouldBe defaultReg
   }
 
-  override protected def beforeEach(): Unit = deleteAllCookies()
 }
