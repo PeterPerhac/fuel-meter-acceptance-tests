@@ -1,1 +1,1 @@
-sbt -Dwebdriver.chrome.driver=/Users/peterperhac/tools/chromeWebDriver/chromedriver
+sbt -Dwebdriver.chrome.driver=/Users/peterperhac/tools/chromeWebDriver/chromedriver 'test'
