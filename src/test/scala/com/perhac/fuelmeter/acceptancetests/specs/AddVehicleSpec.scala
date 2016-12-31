@@ -33,4 +33,16 @@ class AddVehicleSpec extends FuelMeterAcceptanceTest {
     listReadingsPage.vehicleList() should contain(newVehicleReg)
   }
 
+  it should "refuse to save a new vehicle when registration number is invalid" in {
+    val invalidReg = "INVALID-VEHICLE-REGISTRATION-NUMBER"
+    listReadingsPage.addNewVehicle(invalidReg)
+
+    addReadingPage.prefillForm()
+    addReadingPage.submit()
+
+    inside(allErrorsAsString()) {
+      case Some(s) => s should include("Vehicle registration number")
+    }
+  }
+
 }
