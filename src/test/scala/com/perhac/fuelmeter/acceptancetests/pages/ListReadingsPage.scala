@@ -12,7 +12,7 @@ class ListReadingsPage(val reg: String)(implicit val baseUrl: BaseUrl, driver: W
 
   def clickAddReading(): Unit = click on id("btn-add-reading")
 
-  def itemsInList: Int = findAll(cssSelector("#readings-list li")).size
+  def itemsInList: Int = findAll(cssSelector("tr.reading")).size
 
   def vehicleList(): Seq[String] = findAll(cssSelector("#vehicle-list li")).drop(1).map(_.text takeWhile (_.isLetterOrDigit)).toSeq
 
