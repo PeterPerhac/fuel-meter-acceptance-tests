@@ -47,7 +47,7 @@ class AddReadingSpec extends FuelMeterAcceptanceTest {
 
   it should "fail to validate form if user entered a huge number in the miles field" in {
     addReadingPage.prefillForm()
-    addReadingPage.fillForm("mi" -> 1500)
+    addReadingPage.fillForm("miles" -> 1500)
     addReadingPage.submit()
 
     errorsOnPage should contain only "Too much"
@@ -55,14 +55,14 @@ class AddReadingSpec extends FuelMeterAcceptanceTest {
 
   it should "fail to validate form if user entered letters in a numeric field" in {
     addReadingPage.prefillForm()
-    addReadingPage.fillForm("mi" -> "foofoo")
+    addReadingPage.fillForm("miles" -> "foofoo")
     addReadingPage.submit()
 
     errorsOnPage should contain only "Decimal number"
   }
 
   it should "fail to validate form when filled in by evil user" in {
-    addReadingPage.fillForm("date" -> "foo", "mi" -> "foofoo", "total" -> "poopoo", "litres" -> 10000.12, "cost" -> -212.23)
+    addReadingPage.fillForm("date" -> "foo", "miles" -> "foofoo", "mileage" -> "poopoo", "liters" -> 10000.12, "cost" -> -212.23)
     addReadingPage.submit()
 
     errorsOnPage should contain theSameElementsAs List("Decimal number", "Whole number", "Invalid date", "Too much", "Not enough")
