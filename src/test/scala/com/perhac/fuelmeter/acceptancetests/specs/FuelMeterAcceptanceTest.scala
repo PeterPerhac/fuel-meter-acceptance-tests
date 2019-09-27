@@ -14,7 +14,7 @@ abstract class FuelMeterAcceptanceTest extends FlatSpec with Matchers with Optio
 
   lazy val logger: Logger = LoggerFactory.getLogger(this.getClass)
 
-  implicit lazy val baseUrl: BaseUrl = System.getProperty("fuel-meter.base.url", "http://localhost:9000")
+  implicit lazy val baseUrl: BaseUrl = System.getProperty("fuel-meter.base.url", "http://localhost:9000/fuelmeter")
 
   implicit lazy val webDriver: WebDriver = FuelMeterSuite.driver
 
